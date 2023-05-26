@@ -13,7 +13,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
- * PUT YOUR NAME HERE AND YOUR STUDENT NUMBER
+ * Jarlath O'Neill
  * 
  *
  */
@@ -128,6 +128,10 @@ public class StartApp {
 		scanner.close();
 	}
 
+	/**
+	 * Uses separate thread to write cards in current deck to a csv file
+	 * @param mainDeck
+	 */
 	private static void writeDeck(List<TopTrumpCard> mainDeck) {
 		// TODO Auto-generated method stub
 		writerThread newThread = new writerThread(mainDeck);
@@ -136,6 +140,11 @@ public class StartApp {
 		
 	}
 
+	/**
+	 * Removes duplicate cards from the current deck
+	 * @param mainDeck
+	 * @return
+	 */
 	private static List<TopTrumpCard>  removeDuplicates(List<TopTrumpCard> mainDeck) {
 		Set <TopTrumpCard> mainSet = new HashSet<TopTrumpCard>(mainDeck);
 		mainDeck.clear();
@@ -146,6 +155,10 @@ public class StartApp {
 		return mainDeck;
 	}
 
+	/**
+	 * Finds duplicates in the current deck and prints these to the console
+	 * @param mainDeck
+	 */
 	private static void findDupes(List<TopTrumpCard> mainDeck) {
 		// TODO Auto-generated method stub
 		Set <TopTrumpCard> mainSet = new HashSet<TopTrumpCard>();
@@ -166,6 +179,10 @@ public class StartApp {
 		
 	}
 
+	/**
+	 * Displays cards with the longest bio in the current deck
+	 * @param mainDeck
+	 */
 	private static void longestBio(List<TopTrumpCard> mainDeck) {
 		int max=0;
 		Collections.sort(mainDeck, new SortByLongestBio());
@@ -179,6 +196,12 @@ public class StartApp {
 		
 	}
 
+	/**
+	 * Sorts by agility (largest - smallest), adds to a new deck and then prints this deck to the console
+	 * @param mainDeck
+	 * @param villain
+	 * @param i
+	 */
 	private static void topXAgileX(List<TopTrumpCard> mainDeck, Category villain, int i) {
 		// TODO Auto-generated method stub
 		List<TopTrumpCard> sortedDeck = new ArrayList<TopTrumpCard>();
@@ -197,6 +220,12 @@ public class StartApp {
 		
 	}
 
+	/**
+	 * Sorts by strength (largest - smallest), adds to a new deck and then prints this deck to the console
+	 * @param mainDeck
+	 * @param cat
+	 * @param num
+	 */
 	private static void topXStrongestX(List<TopTrumpCard> mainDeck, Category cat, int num) {
 		// TODO Auto-generated method stub
 		List<TopTrumpCard> sortedDeck = new ArrayList<TopTrumpCard>();
@@ -215,6 +244,10 @@ public class StartApp {
 		
 	}
 
+	/**
+	 * Prints all cards in the current deck to the console
+	 * @param mainDeck
+	 */
 	private static void printAllCardsInDeck(List<TopTrumpCard> mainDeck) {
 		// TODO Auto-generated method stub
 		for (TopTrumpCard topTrumpCard : mainDeck) {
@@ -223,6 +256,10 @@ public class StartApp {
 		
 	}
 
+	/**
+	 * Displays how many cards in the current deck via the console
+	 * @param mainDeck
+	 */
 	private static void numberOfCardsInDeck(List<TopTrumpCard> mainDeck) {
 		System.out.println("Number of cards in deck: " + mainDeck.size());
 		System.out.println();
